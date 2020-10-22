@@ -4,7 +4,7 @@
         <!--        头部区域-->
         <el-header>
             <div>
-                <img src="../assets/img/sys_logo.png" height="60"/>
+                <img src="../assets/img/logo.png" height="60"/>
             </div>
             <div class="out-button">
                 <el-dropdown >
@@ -18,47 +18,45 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item class="navigation-text" id="username-div">{{username}}</el-dropdown-item>
                         <el-dropdown-item class="navigation-text" @click.native="changePassword">修改密码</el-dropdown-item>
-                        <el-dropdown-item class="navigation-text" @click.native="systemNotice">
-                            <el-badge value="new" class="item" :hidden="showDot">系统公告</el-badge>
+                        <el-dropdown-item class="navigation-text" @click.native="memberNotice">
+                            <el-badge value="new" class="item" :hidden="showDot">系统消息</el-badge>
                         </el-dropdown-item>
-                        <el-dropdown-item class="navigation-text" @click.native="goIndex">回到首页</el-dropdown-item>
-                        <el-dropdown-item class="navigation-text" id="exit-div" divided @click.native="logout">退出
+                        <el-dropdown-item class="navigation-text" @click.native="goTouristWelcome">回到首页</el-dropdown-item>
+                        <el-dropdown-item class="navigation-text" id="exit-div" divided @click.native="logOut">退出
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </div>
         </el-header>
         <!--        页面主体-->
-        <el-container>
+        <el-container class="main-container">
             <!--            侧边栏-->
-            <el-aside width="150px">
+            <el-aside width="200px">
                 <el-menu router
                          background-color="rgb(239,239,239)" text-color="rgb(43,43,43)" active-text-color="#409EFF">
-                    <el-menu-item index="/adminWelcome">
+                    <el-menu-item index="/memberWelcome">
                         <i class="el-icon-s-home"></i>
-                        管理员首页
+                        欢迎页
                     </el-menu-item>
-                    <el-menu-item index="/adminNotice">
+                    <el-menu-item index="/memberNotice">
                         <i class="el-icon-s-shop"></i>
-                        系统公告
+                        系统消息
                     </el-menu-item>
                     <el-submenu index="1">
-                        <template slot="title"><i class="el-icon-menu"></i>管理</template>
+                        <template slot="title"><i class="el-icon-menu"></i>交易</template>
 						
-                        <el-menu-item index="/adminStudent">学生管理</el-menu-item>
-                        <el-menu-item index="/adminInformation">社团管理</el-menu-item>
+                        <el-menu-item index="/memberTransaction">交易记录</el-menu-item>
+                        <el-menu-item index="/memberPublish">借贷信息</el-menu-item>
                     </el-submenu>
                     <el-submenu index="2">
-                        <template slot="title"><i class="el-icon-s-check"></i>审核</template>
-                        <el-menu-item index="/adminCheckActivity">活动审核</el-menu-item>
-                        <el-menu-item index="/adminCheckSponsor">赞助审核</el-menu-item>
+                        <template slot="title"><i class="el-icon-s-check"></i>风险</template>
+                        <el-menu-item index="/memberCheck">成员信息</el-menu-item>
+                        <el-menu-item index="/memberRate">风险分析</el-menu-item>
                     </el-submenu>
                 </el-menu>
             </el-aside>
             <!--            右侧内容主体-->
             <el-main style="padding-left: 35px">
-
-                <!-- 路由占位符 -->
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -94,28 +92,23 @@
                 }
             },
             //退出按钮
-            logout()
+            logOut()
             {
                 window.sessionStorage.clear();
-                this.$router.push("/index");
+                this.$router.push("/touristWelcome");
             },
             changePassword()
             {
-                this.$router.push("/adminChangePassword")
-            },
-            systemInformation()
-            {
-                this.showDot = true;
-                this.$router.push("/adminSystemInformation")
+                // this.$router.push("/memberChangePassword")
             },
             systemNotice()
             {
                 this.showDot = true;
-                this.$router.push("/adminSystemNotice")
+                this.$router.push("/memberNotice")
             },
-            goIndex()
+            goTouristWelcome()
             {
-                this.$router.push("/index")
+                this.$router.push("/touristWelcome")
             },
             handleCommand(command)
             {
@@ -127,6 +120,9 @@
 
 <style scoped>
     .home-container {
+        height: 100%;
+    }
+    .main-container {
         height: 100%;
     }
     #username-div {
@@ -151,6 +147,8 @@
 
     .el-aside {
         background-color: rgb(239, 239, 239);
+        height: 100%;
+
     }
 
     .el-main {
