@@ -39,13 +39,11 @@
             return {
                 isLogin: false,
                 name: window.sessionStorage.getItem('name'),
-                imgUrl: window.sessionStorage.getItem('imgUrl'),
             };
         },
         created()
         {
             this.name = window.sessionStorage.getItem('name');
-            this.imgUrl = window.sessionStorage.getItem('imgUrl');
             console.log(this.name)
             if (this.name != null)
             {
@@ -53,28 +51,27 @@
             }
         },
         methods: {
-            // selfHome()
-            // {
+            selfHome()
+            {
 
-            //     let userType = window.sessionStorage.getItem('userType');
-            //     console.log(userType);
-            //     if (userType === '0')
-            //     {
-            //         this.$router.push({path: '/studentHome'});
-            //     } else if (userType === '1')
-            //     {
-            //         this.$router.push({path: '/principalHome'});
-            //     } else
-            //         this.$router.push({path: '/adminHome'});
-            // },
-            // login()
-            // {
-            //     this.$router.push("/login");
-            // },
-            // register()
-            // {
-            //     this.$router.push("/register")
-            // }
+                let userType = window.sessionStorage.getItem('userType');
+                console.log(userType);
+                if (userType == "member")
+                {
+                    this.$router.push({path: '/memberHome'});
+                }
+                else{
+                    this.$router.push({path: '/touristHome'});
+                }
+            },
+            login()
+            {
+                this.$router.push("/login");
+            },
+            touristApply()
+            {
+                this.$router.push("/touristApply")
+            }
 
         }
 

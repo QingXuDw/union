@@ -102,26 +102,12 @@
                     if (status === 200)
                     {
                         window.sessionStorage.setItem("login", "true");
-                        window.sessionStorage.setItem("userType", userType);
+                        window.sessionStorage.setItem("userType", "member");
                         window.sessionStorage.setItem("loginTime", new Date().getTime());
-
-                        //根据用户类型跳转不同页面
-                        // if (userType === 0)
-                        // {
-                        //     let result1 = await this.$http.post(this.$api.getStudentNameUrl);
-                        //     window.sessionStorage.setItem("name", result1.data.name);
-                        //     await this.$router.push({path: "/studentHome"});
-                        // } else if (userType === 1)
-                        // {
-                        //     let result1 = await this.$http.post(this.$api.getClubNameUrl);
-                        //     window.sessionStorage.setItem("name", result1.data.name);
-                        //     await this.$router.push({path: "/principalHome"});
-                        // } else
-                        // {
-                        //     window.sessionStorage.setItem("name", this.loginForm.username);
-                        //     await this.$router.push({path: "/adminHome"});
-                        // }
-                    } else
+                        window.sessionStorage.setItem("name", "QingXu有限公司");
+                        await this.$router.push({path: "/memberHome"});
+                    } 
+                    else
                     {
                         this.$message.info(msg);
                     }
