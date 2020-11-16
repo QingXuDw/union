@@ -17,6 +17,7 @@ import memberPublish from '../components/member/memberPublish.vue'
 import memberCheck from '../components/member/memberCheck.vue'
 import memberNotice from '../components/member/memberNotice.vue'
 import memberRate from '../components/member/memberRate.vue'
+import memberInfomation from '../components/member/memberInfomation.vue'
 
 Vue.use(VueRouter)
 
@@ -46,7 +47,8 @@ const routes = [
       {path: '/memberPublish', component: memberPublish},
       {path: '/memberCheck', component: memberCheck},
       {path: '/memberNotice', component: memberNotice},
-      {path: '/memberRate', component: memberRate}
+      {path: '/memberRate', component: memberRate},
+      {path: '/memberInfomation', component: memberInfomation}
     ]
   }
 ]

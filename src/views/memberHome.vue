@@ -18,6 +18,7 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item class="navigation-text" id="username-div">{{username}}</el-dropdown-item>
                         <el-dropdown-item class="navigation-text" @click.native="changePassword">修改密码</el-dropdown-item>
+                        <el-dropdown-item class="navigation-text" @click.native="memberInfomation">个人信息</el-dropdown-item>
                         <el-dropdown-item class="navigation-text" @click.native="memberNotice">
                             <el-badge value="new" class="item" :hidden="showDot">系统消息</el-badge>
                         </el-dropdown-item>
@@ -100,6 +101,10 @@
             changePassword()
             {
                 // this.$router.push("/memberChangePassword")
+            },
+            memberInfomation()
+            {
+                this.$router.push("/memberInfomation")
             },
             systemNotice()
             {

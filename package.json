@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "cnpm": "^6.1.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
     "vue": "^2.6.11",
